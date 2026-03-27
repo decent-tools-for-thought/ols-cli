@@ -7,7 +7,7 @@ name = "ols-cli"
 version = "0.1.0"
 description = "Command-line interface for the EMBL-EBI OLS4 ontology API"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 license = { text = "0BSD" }
 authors = [
   { name = "ols-cli contributors" }
@@ -36,6 +36,7 @@ Source = "https://www.ebi.ac.uk/ols4/"
 
 [project.optional-dependencies]
 dev = [
+  "build>=1.2.2",
   "mypy>=1.10",
   "pytest>=8.2",
   "ruff>=0.5",
@@ -52,7 +53,7 @@ testpaths = ["tests"]
 addopts = "-q"
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.13"
 strict = true
 warn_unused_configs = true
 warn_redundant_casts = true
@@ -64,7 +65,7 @@ disallow_untyped_defs = false
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

@@ -29,6 +29,8 @@ jobs:
         with:
           python-version: "3.13"
 
+      - uses: astral-sh/setup-uv@v6
+
       - name: Resolve release tag
         id: release_meta
         run: |
@@ -42,38 +44,38 @@ jobs:
           test "$tag" = "v${version}"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
-      - name: Install project and dev dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -e .[dev]
+      - name: Install project dependencies
+        run: uv sync --extra dev
 
-      - name: Run quality gates
-        run: |
-          ruff check .
-          mypy src tests
-          PYTHONPATH=src pytest -q
+      - name: Check formatting
+        run: uv run ruff format --check .
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Type check
+        run: uv run mypy src tests
+
+      - name: Run unit tests
+        run: uv run pytest
 
       - name: Build Python distributions
-        run: |
-          python -m pip install --upgrade build
-          python -m build
+        run: uv build
 
       - name: Generate checksums
         run: sha256sum dist/* > dist/SHA256SUMS.txt
 
       - name: Verify wheel install
         run: |
-          python -m venv .venv-wheel
-          .venv-wheel/bin/python -m pip install --upgrade pip
-          .venv-wheel/bin/python -m pip install --no-deps dist/*.whl
+          uv venv .venv-wheel
+          uv pip install --python .venv-wheel/bin/python dist/*.whl
           .venv-wheel/bin/python -c "import ols_cli"
           .venv-wheel/bin/ols --help >/dev/null
 
       - name: Verify sdist install
         run: |
-          python -m venv .venv-sdist
-          .venv-sdist/bin/python -m pip install --upgrade pip setuptools wheel
-          .venv-sdist/bin/python -m pip install --no-build-isolation dist/*.tar.gz
+          uv venv .venv-sdist
+          uv pip install --python .venv-sdist/bin/python dist/*.tar.gz
           .venv-sdist/bin/python -c "import ols_cli"
           .venv-sdist/bin/ols --help >/dev/null
 
