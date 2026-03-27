@@ -2,12 +2,16 @@
 
 # ols-cli
 
-![Python](https://img.shields.io/badge/python-3.11%2B-eab308)
-![License](https://img.shields.io/badge/license-0BSD-ca8a04)
+[![Release](https://img.shields.io/github/v/release/decent-tools-for-thought/ols-cli?sort=semver&color=0f766e)](https://github.com/decent-tools-for-thought/ols-cli/releases)
+![Python](https://img.shields.io/badge/python-3.11%2B-0ea5e9)
+![License](https://img.shields.io/badge/license-0BSD-14b8a6)
 
 OpenAPI-driven command-line client for searching, browsing, and invoking the full EMBL-EBI OLS4 ontology API from the shell.
 
 </div>
+
+> [!IMPORTANT]
+> This codebase is entirely AI-generated. It is useful to me, I hope it might be useful to others, and issues and contributions are welcome.
 
 ## Map
 - [Install](#install)
@@ -17,6 +21,7 @@ OpenAPI-driven command-line client for searching, browsing, and invoking the ful
 - [Credits](#credits)
 
 ## Install
+$$\color{#0EA5E9}Install \space \color{#14B8A6}Tool$$
 
 ```bash
 uv tool install .    # install the CLI
@@ -32,6 +37,7 @@ pip install -e .[dev]
 ```
 
 ## Functionality
+$$\color{#0EA5E9}Browse \space \color{#14B8A6}Ontology$$
 
 ### Ontology Search
 - `ols search`: search terms/entities with optional ontology restriction, exact mode, field selection, paging, and `text`/`json`/`jsonl` output.
@@ -56,6 +62,7 @@ pip install -e .[dev]
   - `1`: runtime/network/upstream failures
 
 ## Configuration
+$$\color{#0EA5E9}Tune \space \color{#14B8A6}Defaults$$
 
 Auth model: none (public OLS API).
 
@@ -76,6 +83,7 @@ Example config file:
 ```
 
 ## Quick Start
+$$\color{#0EA5E9}Try \space \color{#14B8A6}Queries$$
 
 ```bash
 # Curated commands
@@ -103,3 +111,9 @@ ols api tagText -- --content-type application/json --body '{"text":"diabetes and
 This client is built for the EMBL-EBI Ontology Lookup Service (OLS4) API and is not affiliated with EMBL-EBI.
 
 Credit goes to EMBL-EBI and ontology maintainers for the ontology data, API, and documentation this tool depends on.
+
+### GitHub Automation
+
+- CI workflow (`.github/workflows/ci.yml`) runs lint, type checks, and tests on push/PR.
+- Release workflow (`.github/workflows/release.yml`) validates, builds sdist/wheel, verifies installs, and publishes GitHub releases for `v*` tags.
+- Weekly rebuild workflow (`.github/workflows/weekly-rebuild.yml`) rebuilds and verifies installability on a schedule.
