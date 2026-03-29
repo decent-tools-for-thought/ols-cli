@@ -1,0 +1,2 @@
+[console_scripts]
+ols = ols_cli.cli:main
