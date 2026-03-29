@@ -3,14 +3,13 @@ Name: ols-cli
 Version: 0.1.0
 Summary: Command-line interface for the EMBL-EBI OLS4 ontology API
 Author: ols-cli contributors
-License: 0BSD
+License-Expression: 0BSD
 Project-URL: Homepage, https://www.ebi.ac.uk/ols4/
 Project-URL: Documentation, https://www.ebi.ac.uk/ols4/api-docs
 Project-URL: Source, https://www.ebi.ac.uk/ols4/
 Keywords: ontology,ols,ebi,cli,api
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Science/Research
-Classifier: License :: OSI Approved :: BSD License
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: 3.12
