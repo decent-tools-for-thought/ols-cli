@@ -116,4 +116,4 @@ Credit goes to EMBL-EBI and ontology maintainers for the ontology data, API, and
 
 - CI workflow (`.github/workflows/ci.yml`) runs lint, type checks, and tests on push/PR.
 - Release workflow (`.github/workflows/release.yml`) validates, builds sdist/wheel, verifies installs, and publishes GitHub releases for `v*` tags.
-- Weekly rebuild workflow (`.github/workflows/weekly-rebuild.yml`) rebuilds and verifies installability on a schedule.
+- Package drift workflow (`.github/workflows/package-drift.yml`) rebuilds and verifies installability on a schedule.
