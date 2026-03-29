@@ -34,7 +34,7 @@ Homepage = "https://www.ebi.ac.uk/ols4/"
 Documentation = "https://www.ebi.ac.uk/ols4/api-docs"
 Source = "https://www.ebi.ac.uk/ols4/"
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
   "build>=1.2.2",
   "mypy>=1.10",
